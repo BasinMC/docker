@@ -3,6 +3,7 @@ FROM atlassian/bamboo-agent-base
 USER root
 RUN apt-get update && \
     apt-get install -y git maven openjdk-8-jdk-headless openjdk-11-jdk-headless && \
+    update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java && \
     apt-get clean
 
 USER ${BAMBOO_USER}
