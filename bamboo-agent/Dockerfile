@@ -1,0 +1,12 @@
+FROM atlassian/bamboo-agent-base
+
+USER root
+RUN apt-get update && \
+    apt-get install -y git maven openjdk-8-jdk-headless openjdk-11-jdk-headless && \
+    apt-get clean
+
+USER ${BAMBOO_USER}
+RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.jdk.JDK\ 1.8" /usr/lib/jvm/java-8-openjdk-amd64
+RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.jdk.JDK 11" /usr/lib/jvm/java-11-openjdk-amd64
+RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.mvn3.Maven 3.5" /usr/share/maven
+RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.git.executable" /usr/bin/git
