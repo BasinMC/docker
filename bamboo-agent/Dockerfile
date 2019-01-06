@@ -3,7 +3,7 @@ FROM atlassian/bamboo-agent-base
 USER root
 RUN apt-get update && \
     apt-get install -y software-properties-common git git-lfs maven && \
-    add-apt-repository ppa:openjdk-r/ppa && \
+    add-apt-repository -y ppa:openjdk-r/ppa && \
     apt-get update && \
     apt-get install -y openjdk-11 && \
     update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java && \
