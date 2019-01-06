@@ -24,10 +24,10 @@ RUN chmod +x ${BAMBOO_USER_HOME}/entrypoint.sh && \
     chown -R ${BAMBOO_USER} ${BAMBOO_USER_HOME}
 
 USER ${BAMBOO_USER}
-RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.jdk.JDK 11" /usr/lib/jvm/java-11-openjdk-amd64
-RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.mvn3.Maven 3.5" /usr/share/maven
-RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.gradle.Gradle 4.10" /opt/gradle/gradle-${GRADLE_4_10_VERSION}/bin/gradle
-RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.gradle.Gradle 5.1" /opt/gradle/gradle-${GRADLE_5_1_VERSION}/bin/gradle
-RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.git.executable" /usr/bin/git
+RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.jdk.JDK 11" /usr/lib/jvm/java-11-openjdk-amd64 && \
+    ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.mvn3.Maven 3.5" /usr/share/maven && \
+    ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.gradle.Gradle 4.10" /opt/gradle/gradle-${GRADLE_4_10_VERSION}/bin/gradle && \
+    ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.gradle.Gradle 5.1" /opt/gradle/gradle-${GRADLE_5_1_VERSION}/bin/gradle && \
+    ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.git.executable" /usr/bin/git
 
 ENTRYPOINT ["./entrypoint.sh"]
