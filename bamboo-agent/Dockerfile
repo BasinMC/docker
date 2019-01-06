@@ -16,9 +16,11 @@ RUN apt-get update && \
     unzip -d /opt/gradle /tmp/gradle-5.1.zip && \
     unzip -d /opt/gradle /tmp/gradle-4.10.zip && \
     apt-get remove -y curl unzip && \
+    mkdir -p  ${BAMBOO_USER_HOME}/.gradle/init.d/ && \
     apt-get clean
 
 COPY entrypoint.sh ${BAMBOO_USER_HOME}/entrypoint.sh
+COPY init.gradle ${BAMBOO_USER_HOME}/.gradle/init.d/basin.gradle
 
 RUN chmod +x ${BAMBOO_USER_HOME}/entrypoint.sh && \
     chown -R ${BAMBOO_USER} ${BAMBOO_USER_HOME}
