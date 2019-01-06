@@ -20,6 +20,7 @@ RUN apt-get update && \
     apt-get clean
 
 COPY entrypoint.sh ${BAMBOO_USER_HOME}/entrypoint.sh
+COPY gradle.properties ${BAMBOO_USER_HOME}/.gradle/gradle.properties
 COPY init.gradle ${BAMBOO_USER_HOME}/.gradle/init.d/basin.gradle
 
 RUN chmod +x ${BAMBOO_USER_HOME}/entrypoint.sh && \
