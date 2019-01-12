@@ -11,6 +11,7 @@ RUN apt-get update && \
     curl -Lo /tmp/gradle-5.1.zip https://services.gradle.org/distributions/gradle-${GRADLE_5_1_VERSION}-bin.zip && \
     curl -Lo /tmp/gradle-4.10.zip https://services.gradle.org/distributions/gradle-${GRADLE_4_10_VERSION}-bin.zip && \
     curl -Lo /usr/bin/mc https://dl.minio.io/client/mc/release/linux-amd64/mc && \
+    chmod +x /usr/bin/mc && \
     mkdir -p /opt/maven && \
     unzip -d /opt/maven /tmp/maven-3.zip && \
     mkdir -p /opt/gradle && \
