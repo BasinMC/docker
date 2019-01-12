@@ -10,12 +10,13 @@ RUN apt-get update && \
     curl -Lo /tmp/maven-3.zip https://www-eu.apache.org/dist/maven/maven-3/${MAVEN_3_VERSION}/binaries/apache-maven-${MAVEN_3_VERSION}-bin.zip && \
     curl -Lo /tmp/gradle-5.1.zip https://services.gradle.org/distributions/gradle-${GRADLE_5_1_VERSION}-bin.zip && \
     curl -Lo /tmp/gradle-4.10.zip https://services.gradle.org/distributions/gradle-${GRADLE_4_10_VERSION}-bin.zip && \
+    curl -Lo /usr/bin/mc https://dl.minio.io/client/mc/release/linux-amd64/mc && \
     mkdir -p /opt/maven && \
     unzip -d /opt/maven /tmp/maven-3.zip && \
     mkdir -p /opt/gradle && \
     unzip -d /opt/gradle /tmp/gradle-5.1.zip && \
     unzip -d /opt/gradle /tmp/gradle-4.10.zip && \
-    apt-get remove -y curl unzip && \
+    apt-get remove -y curl && \
     rm /tmp/maven-3.zip && \
     rm /tmp/gradle-5.1.zip && \
     rm /tmp/gradle-4.10.zip && \
@@ -34,6 +35,7 @@ RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.mvn3.Maven 3
     ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.mvn3.Maven ${MAVEN_3_VERSION}" /opt/maven/apache-maven-${MAVEN_3_VERSION} && \
     ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.gradle.Gradle 4.10" /opt/gradle/gradle-${GRADLE_4_10_VERSION}/bin/gradle && \
     ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.gradle.Gradle 5.1" /opt/gradle/gradle-${GRADLE_5_1_VERSION}/bin/gradle && \
-    ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.git.executable" /usr/bin/git
+    ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.git.executable" /usr/bin/git && \
+    ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "Minio Client" /usr/bin/mc
 
 ENTRYPOINT ["./entrypoint.sh"]
