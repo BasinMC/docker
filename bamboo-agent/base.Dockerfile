@@ -38,6 +38,6 @@ RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.mvn3.Maven 3
     ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.git.executable" /usr/bin/git && \
     ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.command.Minio Client" /usr/bin/mc && \
     ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.command.unzip" /usr/bin/unzip && \
-    ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.command.unzip" /usr/bin/zip
+    ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.command.zip" /usr/bin/zip
 
 ENTRYPOINT ["./entrypoint.sh"]
