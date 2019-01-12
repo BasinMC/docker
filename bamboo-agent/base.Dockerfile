@@ -36,6 +36,6 @@ RUN ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.mvn3.Maven 3
     ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.gradle.Gradle 4.10" /opt/gradle/gradle-${GRADLE_4_10_VERSION}/bin/gradle && \
     ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.gradle.Gradle 5.1" /opt/gradle/gradle-${GRADLE_5_1_VERSION}/bin/gradle && \
     ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.git.executable" /usr/bin/git && \
-    ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "Minio Client" /usr/bin/mc
+    ${BAMBOO_USER_HOME}/bamboo-update-capability.sh "system.builder.command.Minio Client" /usr/bin/mc
 
 ENTRYPOINT ["./entrypoint.sh"]
